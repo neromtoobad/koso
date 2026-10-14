@@ -1069,6 +1069,7 @@ function banner(t, s, ms) {
 }
 function hint(txt, top) { const h = $('hint'); h.textContent = txt; h.classList.toggle('top', !!top); h.classList.add('on'); }
 function hideHint() { hide('hint'); }
+const P2_BADGE = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#2b3a67"/><text x="50" y="66" font-family="Arial Black,Arial" font-weight="900" font-size="44" fill="#f6f1e7" text-anchor="middle">P2</text></svg>');
 function portrait(side) {
   if (G.mode === 'ladder') return side === 0 ? 'assets/kids/you.webp' : `assets/kids/${G.kid.id}.webp`;
   return null;
@@ -1080,8 +1081,7 @@ function updateHud() {
   for (const side of [0, 1]) {
     const hp = $('hp' + side), src = portrait(side);
     const img = hp.querySelector('img');
-    if (src) { img.style.display = ''; img.src = src; } else { img.style.display = ''; img.src = side === 0 ? 'assets/kids/you.webp' : 'assets/kids/you.webp'; img.style.filter = side === 1 ? 'hue-rotate(180deg) saturate(.6)' : ''; }
-    if (src) img.style.filter = '';
+    img.src = src || (side === 0 ? 'assets/kids/you.webp' : P2_BADGE);
     const nm = G.mode === 'duo' ? (side === 0 ? 'PLAYER 1' : 'PLAYER 2') : (side === 0 ? 'YOU' : G.kid.name.toUpperCase());
     hp.querySelector('.nm').textContent = nm;
   }
@@ -1210,7 +1210,7 @@ function goDuo() {
 $('bDuoBack').addEventListener('click', () => { AU.fx.click(); screen('s-title'); });
 $('bDuoGo').addEventListener('click', () => {
   AU.fx.click(); save.duo = duoSel.slice(); persist();
-  versus({ n0: 'PLAYER 1', t0: TOPS[duoSel[0]].name, i0: 'assets/kids/you.webp', n1: 'PLAYER 2', t1: TOPS[duoSel[1]].name, i1: 'assets/kids/you.webp', f1: 'hue-rotate(180deg) saturate(.6)', q1: 'Player 2 sits at the top' },
+  versus({ n0: 'PLAYER 1', t0: TOPS[duoSel[0]].name, i0: 'assets/kids/you.webp', n1: 'PLAYER 2', t1: TOPS[duoSel[1]].name, i1: P2_BADGE, q1: 'Player 2 sits at the top' },
     () => startMatch('duo'));
 });
 
