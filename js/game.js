@@ -12,20 +12,20 @@ const len = (x, y) => Math.hypot(x, y);
 
 // ---------------------------------------------------------------- data
 const TOPS = {
-  omo:    { name: 'Ọmọ Ìta',   r: 34, m: 1.0,  acc: 600, drag: 1.75, decay: 0.020, pow: 1.0,  dashCd: 1.05, wood: '#d7a86a', bands: ['#c8312b', '#f6f1e7', '#2f8f4e', '#c8312b', '#f4b63d'], stripe: '#7c1d18', knob: '#8a5a2b' },
-  baby:   { name: 'Baby Koso', r: 30, m: 0.82, acc: 520, drag: 1.75, decay: 0.019, pow: 0.85, dashCd: 1.2,  wood: '#e2bb7d', bands: ['#f4b63d', '#fbe3a0', '#e39b1b', '#f4b63d'], stripe: '#a8650c', knob: '#9a6a35' },
-  dart:   { name: 'Dart',      r: 30, m: 0.8,  acc: 720, drag: 1.65, decay: 0.023, pow: 0.92, dashCd: 0.9,  wood: '#d9b07a', bands: ['#2b6cd3', '#f6f1e7', '#2b6cd3', '#f6f1e7', '#2b6cd3'], stripe: '#12387a', knob: '#7d5530' },
-  iroko:  { name: 'Iroko',     r: 40, m: 1.35, acc: 470, drag: 1.85, decay: 0.024, pow: 1.0, dashCd: 1.3,  wood: '#6e4320', bands: ['#5a3519', '#8b5a2f', '#4a2a12', '#7b4a24'], stripe: '#2b170a', knob: '#3d2410' },
-  wahala: { name: 'Wahala',    r: 33, m: 1.0,  acc: 640, drag: 1.7,  decay: 0.022, pow: 1.0,  dashCd: 0.75, wood: '#d7a86a', bands: ['#e5398d', '#f4b63d', '#2bb3a3', '#7a3fd1', '#f6f1e7'], stripe: '#2b3a67', knob: '#8a5a2b' },
-  nail:   { name: 'Nail Tip',  r: 35, m: 1.2,  acc: 660, drag: 1.7,  decay: 0.017, pow: 1.08, dashCd: 1.0,  wood: '#3a2a22', bands: ['#1d1a1a', '#c8312b', '#1d1a1a', '#c8312b'], stripe: '#f6f1e7', knob: '#b9c0c8', nail: true },
+  omo:    { name: 'Ọmọ Ìta',   r: 44, m: 1.0,  acc: 430, drag: 1.75, decay: 0.020, pow: 1.0,  dashCd: 1.05, wood: '#d7a86a', bands: ['#c8312b', '#f6f1e7', '#2f8f4e', '#c8312b', '#f4b63d'], stripe: '#7c1d18', knob: '#8a5a2b' },
+  baby:   { name: 'Baby Koso', r: 39, m: 0.82, acc: 375, drag: 1.75, decay: 0.022, pow: 0.85, dashCd: 1.2,  wood: '#e2bb7d', bands: ['#f4b63d', '#fbe3a0', '#e39b1b', '#f4b63d'], stripe: '#a8650c', knob: '#9a6a35' },
+  dart:   { name: 'Dart',      r: 39, m: 0.8,  acc: 520, drag: 1.65, decay: 0.023, pow: 0.92, dashCd: 0.9,  wood: '#d9b07a', bands: ['#2b6cd3', '#f6f1e7', '#2b6cd3', '#f6f1e7', '#2b6cd3'], stripe: '#12387a', knob: '#7d5530' },
+  iroko:  { name: 'Iroko',     r: 52, m: 1.35, acc: 340, drag: 1.85, decay: 0.024, pow: 1.0, dashCd: 1.3,  wood: '#6e4320', bands: ['#5a3519', '#8b5a2f', '#4a2a12', '#7b4a24'], stripe: '#2b170a', knob: '#3d2410' },
+  wahala: { name: 'Wahala',    r: 43, m: 1.0,  acc: 460, drag: 1.7,  decay: 0.022, pow: 1.0,  dashCd: 0.75, wood: '#d7a86a', bands: ['#e5398d', '#f4b63d', '#2bb3a3', '#7a3fd1', '#f6f1e7'], stripe: '#2b3a67', knob: '#8a5a2b' },
+  nail:   { name: 'Nail Tip',  r: 45, m: 1.2,  acc: 475, drag: 1.7,  decay: 0.019, pow: 1.08, dashCd: 1.0,  wood: '#3a2a22', bands: ['#1d1a1a', '#c8312b', '#1d1a1a', '#c8312b'], stripe: '#f6f1e7', knob: '#b9c0c8', nail: true },
 };
 const TOP_ORDER = ['omo', 'baby', 'dart', 'iroko', 'wahala', 'nail'];
 const KIDS = [
-  { id: 'tunde', name: 'Tunde',    top: 'baby',   hazard: null,      hz: '',                       quote: 'Na my first time o. Abeg go easy.', ai: { skill: .22, aggro: .45, dash: .55, react: .4,  perfect: .12, jitter: .25 } },
+  { id: 'tunde', name: 'Tunde',    top: 'baby',   hazard: null,      hz: '',                       quote: 'Na my first time o. Abeg go easy.', ai: { skill: .15, aggro: .45, dash: .4, react: .45, perfect: .08, jitter: .25 } },
   { id: 'kemi',  name: 'Kemi',     top: 'dart',   hazard: 'sand',    hz: 'Sand patches slow you',  quote: 'You no fit catch me.',              ai: { skill: .45, aggro: .8,  dash: 1.1, react: .27, perfect: .3,  jitter: .18 } },
   { id: 'sola',  name: 'Big Sola', top: 'iroko',  hazard: 'caps',    hz: 'Bottle caps everywhere', quote: 'Iroko no dey shake.',               ai: { skill: .55, aggro: .6,  dash: .65, react: .22, perfect: .38, jitter: .12 } },
   { id: 'ify',   name: 'Ify',      top: 'wahala', hazard: 'chicken', hz: 'A chicken wanders in',   quote: 'Wahala dey o!',                     ai: { skill: .62, aggro: .95, dash: 2.0, react: .18, perfect: .42, jitter: .4 } },
-  { id: 'oga',   name: 'Oga Nail', top: 'nail',   hazard: 'broom',   hz: "Mama's broom sweeps",    quote: 'Bring your koso. Na mine e go be.', ai: { skill: .8, aggro: .85, dash: 1.3, react: .12, perfect: .5,  jitter: .06 } },
+  { id: 'oga',   name: 'Oga Nail', top: 'nail',   hazard: 'broom',   hz: "Mama's broom sweeps",    quote: 'Bring your koso. Na mine e go be.', ai: { skill: .7, aggro: .8, dash: 1.2, react: .14, perfect: .45,  jitter: .06 } },
 ];
 const KID_BY = Object.fromEntries(KIDS.map(k => [k.id, k]));
 const ATTRACT_AI = { skill: .55, aggro: .8, dash: 1.2, react: .2, perfect: .4, jitter: .2 };
@@ -80,7 +80,7 @@ function resize() {
   W = innerWidth; H = innerHeight; DPR = Math.min(2, devicePixelRatio || 1);
   cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR);
   HUDH = 66;
-  const needW = 2 * R + 60, needH = 2 * (HAND_Y + 44);
+  const needW = 2 * R + 60, needH = 2 * (HAND_Y + (W > H ? 95 : 44));
   S = Math.min(W / needW, (H - HUDH) / needH);
   CX = W / 2; CY = HUDH + (H - HUDH) / 2;
 }
@@ -261,7 +261,7 @@ function startRound() {
     for (let i = 0; i < 7; i++) {
       for (let tries = 0; tries < 30; tries++) {
         const a = Math.random() * TAU, d = rnd(60, R * 0.8), x = Math.cos(a) * d, y = Math.sin(a) * d;
-        if (G.caps.every(c => len(c.x - x, c.y - y) > 40)) { G.caps.push({ x, y, vx: 0, vy: 0, r: 9, m: 0.12, rot: Math.random() * TAU, col: cols[i], out: false }); break; }
+        if (G.caps.every(c => len(c.x - x, c.y - y) > 40)) { G.caps.push({ x, y, vx: 0, vy: 0, r: 13, m: 0.14, rot: Math.random() * TAU, col: cols[i], out: false }); break; }
       }
     }
   }
@@ -278,7 +278,7 @@ function nextThrower() {
   if (side === undefined) { beginBattle(); return; }
   const t = G.tops[side];
   G.thr = { side, t, human: G.ctrl[side] === 'human', holding: false, ph: 0, holdT: 0, sx: 0, sy: 0, x: 0, y: 0,
-    kb: false, aim: side === 0 ? -Math.PI / 2 : Math.PI / 2, pull: 110, wait: 0, cpuHold: rnd(0.9, 1.5), cpuT: 0, ptr: null };
+    kb: false, aim: side === 0 ? -Math.PI / 2 : Math.PI / 2, pull: 73, wait: 0, cpuHold: rnd(0.9, 1.5), cpuT: 0, ptr: null };
   if (!G.thr.human) planCpuThrow(G.thr);
   if (G.thr.human && !G.quiet) {
     AU.duck(true);
@@ -328,13 +328,13 @@ const WIND_P = 0.95, WIND_TGT = 0.72;
 function throwGeom(thr) {
   // returns landing target and normalised direction from the current aim/pull
   const side = thr.side, hy = side === 0 ? HAND_Y : -HAND_Y;
-  const d = clamp(thr.pull, 0, 200);
-  const dist = lerp(120, 2 * R + 140, clamp((d - 15) / 175, 0, 1));
+  const d = clamp(thr.pull, 0, 150);   // pull is in screen px so it feels the same on every device
+  const dist = lerp(120, 2 * R + 140, clamp((d - 12) / 138, 0, 1));
   const dx = Math.cos(thr.aim), dy = Math.sin(thr.aim);
   return { hx: 0, hy, dx, dy, tx: dx * dist, ty: hy + dy * dist, pull: d };
 }
 function aimFromPointer(thr) {
-  const ddx = (thr.sx - thr.x) / S, ddy = (thr.sy - thr.y) / S;
+  const ddx = thr.sx - thr.x, ddy = thr.sy - thr.y;
   const fwd = thr.side === 0 ? -Math.PI / 2 : Math.PI / 2;
   let a = Math.atan2(ddy, ddx), rel = Math.atan2(Math.sin(a - fwd), Math.cos(a - fwd));
   rel = clamp(rel, -1.15, 1.15);
@@ -348,14 +348,14 @@ function windQuality(ph) {
 }
 function release(thr) {
   if (!thr || thr.done) return;
-  if (thr.human && thr.pull < 15) { thr.holding = false; thr.kb = false; return; }  // a tap without a pull: cancel
+  if (thr.human && thr.pull < 12) { thr.holding = false; thr.kb = false; return; }  // a tap without a pull: cancel
   thr.done = true;
   const gq = throwGeom(thr), wq = thr.forceQ || windQuality(thr.ph);
   const t = thr.t;
   t.spin = wq.spin; t.state = 'air';
-  const sx = gq.hx - gq.dx * Math.min(gq.pull, 190) * 0.35, sy = gq.hy - gq.dy * Math.min(gq.pull, 190) * 0.35;
+  const sx = gq.hx - gq.dx * gq.pull * 0.3 / S, sy = gq.hy - gq.dy * gq.pull * 0.3 / S;
   const dist = len(gq.tx - sx, gq.ty - sy);
-  t.fl = { sx, sy, tx: gq.tx, ty: gq.ty, t: 0, dur: 0.38 + dist / 1500, dx: gq.dx, dy: gq.dy, v: 130 + 150 * wq.q };
+  t.fl = { sx, sy, tx: gq.tx, ty: gq.ty, t: 0, dur: 0.38 + dist / 1500, dx: gq.dx, dy: gq.dy, v: 50 + 50 * wq.q };
   t.x = sx; t.y = sy;
   if (!G.quiet) {
     AU.fx.whoosh(); AU.fx.zip(0.6);
@@ -365,7 +365,7 @@ function release(thr) {
   if (thr.human) { save.hints++; persist(); hideHint(); }
 }
 function land(t) {
-  const f = t.fl; t.fl = null;
+  const f = t.fl; t.fl = null; t.fl0x = f.dx; t.fl0y = f.dy;
   t.x = f.tx; t.y = f.ty; t.vx = f.dx * f.v; t.vy = f.dy * f.v;
   if (len(t.x, t.y) > R - t.r * 0.2) {
     // landed outside the chalk
@@ -382,7 +382,7 @@ function land(t) {
   // direct hit on a top that is already spinning
   const o = G.tops[1 - t.side];
   if (o.state === 'spin' && len(o.x - t.x, o.y - t.y) < t.r + o.r + 6) {
-    t.vx *= 1.9; t.vy *= 1.9;
+    t.vx = t.fl0x * 320; t.vy = t.fl0y * 320;
     collideTops(t, o, true);
     pop('KPA!', (t.x + o.x) / 2, (t.y + o.y) / 2 - 30, '#f4b63d', 54);
   }
@@ -402,14 +402,14 @@ function planCpuThrow(thr) {
   if (len(tx, ty) > R * 0.82) { const k = R * 0.82 / len(tx, ty); tx *= k; ty *= k; }
   const dx = tx, dy = ty - hy, dist = len(dx, dy);
   thr.aim = Math.atan2(dy, dx);
-  thr.pull = 15 + (dist - 120) / (2 * R + 20) * 175;
+  thr.pull = 12 + (dist - 120) / (2 * R + 20) * 138;
   thr.forceQ = Math.random() < ai.perfect ? windQuality(WIND_TGT) : windQuality(WIND_TGT + (Math.random() < 0.5 ? -1 : 1) * rnd(0.06, 0.06 + 0.3 * (1 - ai.skill)));
 }
 
 // ---------------------------------------------------------------- physics
 const DT = 1 / 120;
 const DG = [{ decay: 0, hit: 0, dash: 0, n: 0 }, { decay: 0, hit: 0, dash: 0, n: 0 }];
-const TUNE = { dmg: 0.00008, dashCost: 0.03, rest: 1.6, clash: 1.0, dashSp: 470 };
+const TUNE = { dish: 0.85, dmg: 0.00008, dashCost: 0.03, rest: 1.6, clash: 1.0, dashSp: 470 };
 function stepPhys(dt) {
   const battle = G.phase === 'battle';
   if (battle) G.bt += dt;
@@ -428,11 +428,11 @@ function stepPhys(dt) {
           thr.aim += k.x * 1.6 * dt * (thr.side === 0 ? 1 : -1);
           const fwd = thr.side === 0 ? -Math.PI / 2 : Math.PI / 2;
           thr.aim = fwd + clamp(Math.atan2(Math.sin(thr.aim - fwd), Math.cos(thr.aim - fwd)), -1.15, 1.15);
-          thr.pull = clamp(thr.pull - k.y * 150 * dt * (thr.side === 0 ? 1 : -1), 16, 200);
+          thr.pull = clamp(thr.pull - k.y * 110 * dt * (thr.side === 0 ? 1 : -1), 13, 150);
         }
       } else {
         thr.wait += dt;
-        if (thr.wait > 12 && G.mode !== 'duo') { thr.pull = 110; thr.ph = 0.3; release(thr); }
+        if (thr.wait > 12 && G.mode !== 'duo') { thr.pull = 73; thr.ph = 0.3; release(thr); }
       }
     } else {
       thr.cpuT += dt;
@@ -457,7 +457,7 @@ function stepPhys(dt) {
       }
       const grip = 0.32 + 0.68 * clamp(t.spin / 0.5, 0, 1);
       let ax = ux * t.spec.acc * grip, ay = uy * t.spec.acc * grip;
-      ax -= t.x * 0.55; ay -= t.y * 0.55;           // the ring is a very shallow dish
+      ax -= t.x * TUNE.dish; ay -= t.y * TUNE.dish;           // the ring is a very shallow dish
       t.wob = clamp((0.3 - t.spin) / 0.3, 0, 1);
       if (t.wob > 0) { ax += Math.cos(t.phi * 0.7) * t.wob * 240; ay += Math.sin(t.phi * 0.7) * t.wob * 240; }
       let drag = t.spec.drag, extra = 0;
@@ -472,9 +472,13 @@ function stepPhys(dt) {
       if (t.dashCd > 0) t.dashCd -= dt;
       if (t.dashT > 0) t.dashT -= dt;
       // scuff marks in the dirt
-      if (sctx && len(t.x, t.y) < R + 10) {
-        sctx.strokeStyle = 'rgba(70,24,6,0.20)'; sctx.lineWidth = 3.5; sctx.lineCap = 'round';
-        sctx.beginPath(); sctx.moveTo(600 + t.px * 2, 600 + t.py * 2); sctx.lineTo(600 + t.x * 2 + 0.01, 600 + t.y * 2); sctx.stroke();
+      t.trail = (t.trail || 0) + len(t.x - t.px, t.y - t.py);
+      if (sctx && t.trail > 10 && len(t.x, t.y) < R + 10) {   // a faint dusty track behind the top
+        t.trail = 0;
+        const gx = 600 + t.x * 2, gy = 600 + t.y * 2, rr = t.r * 0.9;
+        const gr = sctx.createRadialGradient(gx, gy, 0, gx, gy, rr);
+        gr.addColorStop(0, 'rgba(240,190,140,0.05)'); gr.addColorStop(1, 'rgba(240,190,140,0)');
+        sctx.fillStyle = gr; sctx.beginPath(); sctx.arc(gx, gy, rr, 0, TAU); sctx.fill();
       }
       if (t.hum) t.hum.set(Math.max(0, t.spin), len(t.vx, t.vy), t.wob);
       if (len(t.x, t.y) > R + t.r * 0.25) { knockOut(t); continue; }
@@ -610,7 +614,7 @@ function aiSteer(t, o, ai, dt) {
   const k = Math.min(1, dt * 10);
   t.u.x = lerp(t.u.x, t.uWant.x, k); t.u.y = lerp(t.u.y, t.uWant.y, k);
   // dash decision
-  if (t.dashCd <= 0 && t.mode === 'attack') {
+  if (t.dashCd <= 0 && t.mode === 'attack' && G.bt > 1.2) {
     const dx = o.x - t.x, dy = o.y - t.y, d = len(dx, dy);
     if (d < 210 && d > t.r + o.r + 8 && Math.random() < ai.dash * dt * 1.6) {
       // a careful kid does not dash when it would carry them out of the ring
@@ -682,7 +686,7 @@ function stepHazards(dt, battle) {
       if (G.chickenT <= 0) {
         const a = Math.random() * TAU, sx = Math.cos(a) * (R + 140), sy = Math.sin(a) * (R + 140);
         const b = a + Math.PI + rnd(-0.6, 0.6);
-        G.chicken = { x: sx, y: sy, gx: Math.cos(b) * (R + 160), gy: Math.sin(b) * (R + 160), h: 0, st: 'walk', t: 0, peck: rnd(1.5, 3), step: 0, r: 20 };
+        G.chicken = { x: sx, y: sy, gx: Math.cos(b) * (R + 160), gy: Math.sin(b) * (R + 160), h: 0, st: 'walk', t: 0, peck: rnd(1.5, 3), step: 0, r: 34 };
         if (!G.quiet) AU.fx.cluck();
       }
     } else stepChicken(dt);
@@ -813,7 +817,7 @@ addEventListener('keydown', e => {
   if (side < 0) return;
   const thr = G.thr;
   if (G.phase === 'throw' && thr && thr.side === side && thr.human && !thr.done && !thr.holding) {
-    thr.holding = true; thr.kb = true; thr.holdT = 0; thr.ph = 0; thr.pull = 110; thr.aim = side === 0 ? -Math.PI / 2 : Math.PI / 2;
+    thr.holding = true; thr.kb = true; thr.holdT = 0; thr.ph = 0; thr.pull = 73; thr.aim = side === 0 ? -Math.PI / 2 : Math.PI / 2;
     if (!G.quiet) AU.fx.zip(0.7);
   } else if (G.phase === 'battle') dash(side);
 });
@@ -909,7 +913,7 @@ function drawTopEntity(t) {
 function drawThrowUI(thr) {
   const t = thr.t, gq = throwGeom(thr);
   const pulled = thr.holding || !thr.human;
-  const pull = pulled ? Math.min(gq.pull, 190) * 0.35 : 0;
+  const pull = pulled ? gq.pull * 0.3 / S : 0;
   const tx = gq.hx - gq.dx * pull, ty = gq.hy - gq.dy * pull;
   const sideSign = thr.side === 0 ? 1 : -1;
   // string to the hand off-screen
@@ -917,7 +921,7 @@ function drawThrowUI(thr) {
   ctx.strokeStyle = '#efe2c4'; ctx.lineWidth = 2.6; ctx.lineCap = 'round';
   ctx.beginPath(); ctx.moveTo(tx, ty); ctx.quadraticCurveTo(tx + 30, ty + 60 * sideSign, 10, (HAND_Y + 140) * sideSign); ctx.stroke();
   // aim line + reticle
-  if (pulled && gq.pull >= 15) {
+  if (pulled && gq.pull >= 12) {
     const inRing = len(gq.tx, gq.ty) < R - t.r * 0.2;
     ctx.setLineDash([3, 13]); ctx.lineWidth = 5; ctx.strokeStyle = inRing ? 'rgba(246,241,231,0.85)' : 'rgba(224,83,59,0.9)';
     ctx.beginPath(); ctx.moveTo(gq.hx + gq.dx * 50, gq.hy + gq.dy * 50); ctx.lineTo(gq.tx, gq.ty); ctx.stroke(); ctx.setLineDash([]);
@@ -958,7 +962,7 @@ function drawCap(c) {
   ctx.restore();
 }
 function drawChicken(c) {
-  ctx.save(); ctx.translate(c.x, c.y);
+  ctx.save(); ctx.translate(c.x, c.y); ctx.scale(1.75, 1.75);
   ctx.fillStyle = 'rgba(40,10,0,0.3)'; ctx.beginPath(); ctx.ellipse(6, 9, 24, 18, c.h, 0, TAU); ctx.fill();
   ctx.rotate(c.h);
   const bob = c.st === 'peck' ? Math.abs(Math.sin(c.t * 14)) * 8 : 0;
@@ -991,15 +995,18 @@ function drawBroom(b) {
     ctx.globalAlpha = 0.25 + 0.2 * Math.sin(b.t * 16);
     ctx.fillStyle = '#3a1d0e'; ctx.fillRect(-R - 60, -R - 40, 60, 2 * R + 80);
   } else {
-    // a bundle of palm-rib sticks swept sideways, tied at the far end
+    // a long bundle of palm-rib sticks (igbale), bristle tips dragging in the sweep direction
     ctx.translate(b.pos, 0);
-    ctx.fillStyle = 'rgba(40,10,0,0.25)'; ctx.fillRect(-26, -R - 70, 52, 2 * R + 140);
-    for (let i = 0; i < 70; i++) {
-      const y = -R - 70 + i * (2 * R + 140) / 70, bend = Math.sin(i * 1.7) * 6 - 10;
-      ctx.strokeStyle = i % 3 ? '#d9b46e' : '#b98d48'; ctx.lineWidth = 3;
-      ctx.beginPath(); ctx.moveTo(-30, y); ctx.quadraticCurveTo(0, y + 2, 26 + bend, y + 4); ctx.stroke();
+    const L = R + 90;
+    ctx.fillStyle = 'rgba(40,10,0,0.28)'; ctx.fillRect(-20, -L + 14, 64, 2 * L);
+    for (let i = 0; i < 120; i++) {
+      const y = -L + (i + 0.5) * (2 * L) / 120, sw = Math.sin(i * 2.3) * 7, tip = 40 + Math.sin(i * 0.9) * 10;
+      ctx.strokeStyle = i % 4 === 0 ? '#9c7334' : i % 3 ? '#e2c27e' : '#c9a35c'; ctx.lineWidth = 2.6;
+      ctx.beginPath(); ctx.moveTo(-34, y * 0.96); ctx.quadraticCurveTo(0, y + sw * 0.5, tip, y + sw); ctx.stroke();
     }
-    ctx.fillStyle = '#c8312b'; ctx.fillRect(-36, -R - 74, 14, 2 * R + 148);
+    // binding near the back of the bundle
+    ctx.fillStyle = '#c8312b'; ctx.strokeStyle = '#3a1d0e'; ctx.lineWidth = 2;
+    for (let k = 0; k < 3; k++) { ctx.fillRect(-44 + k * 9, -L * 0.98, 6, 2 * L * 0.98); }
   }
   ctx.restore();
 }
